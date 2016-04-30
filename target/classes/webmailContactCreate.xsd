@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://webmail.com/CreateContact" xmlns:tns="http://webmail.com/CreateContact"
+	elementFormDefault="qualified">
+
+	<xs:element name="createContactRequest">
+		<xs:complexType>
+			<xs:sequence> 
+			<xs:element name="webamilVCFFileName" type="xs:string" />
+			<xs:element name="webamilNote" type="xs:string" />
+				<xs:element name="webamilFullName" type="xs:string" />
+				<xs:element name="webamilCompany" type="xs:string" />
+				<xs:element name="webamilJob" type="xs:string" />
+				<xs:element name="webamilEmail" type="xs:string" />
+				<xs:element name="webamilWebPage" type="xs:string" />
+				<xs:element name="webamilPhoneWork" type="xs:string" />
+				<xs:element name="webamilPhoneHome" type="xs:string" />
+				<xs:element name="webamilPhoneFax" type="xs:string" />
+				<xs:element name="webamilPhoneMob" type="xs:string" />
+				<xs:element name="webmailAddrWork" type="xs:string"/>
+				<xs:element name="webamilAddrHome" type="xs:string" />
+				<xs:element name="webamilPre" type="xs:string" />
+				<xs:element name="webamilSuf" type="xs:string" />
+				<xs:element name="webmailMNM" type="xs:string"/>
+				<xs:element name="webamilFNM" type="xs:string" />
+				<xs:element name="webamilLNM" type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="webamilPhoto" type="xs:byte" />
+				<!-- <xs:element name="webamilPhoto" type="xs:string" /> -->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="createContactResponse">
+		<xs:complexType>
+			<xs:sequence>
+				 <xs:element minOccurs="0" maxOccurs="1" name="getVFCIOStream" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	
+	<xs:element name="displayContactRequest">
+		<xs:complexType>
+			<xs:sequence>
+				 <xs:element  name="getVFCIOStream" type="xs:string" />
+				  <xs:element  name="getVFCFileName" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	<xs:element name="getFullContactDetailResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1"
+					name="GetFullContactDetail" type="tns:DisplayContact" />
+				</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	<xs:complexType name="DisplayContact">
+	
+			<xs:sequence>
+				<xs:element name="webamilVCFFileName" type="xs:string" />
+				<xs:element name="webamilNote" type="xs:string" />
+				<xs:element name="webamilFullName" type="xs:string" />
+				<xs:element name="webamilCompany" type="xs:string" />
+				<xs:element name="webamilJob" type="xs:string" />
+				<xs:element name="webamilEmail" type="xs:string" />
+				<xs:element name="webamilWebPage" type="xs:string" />
+				<xs:element name="webamilPhoneWork" type="xs:string" />
+				<xs:element name="webamilPhoneHome" type="xs:string" />
+				<xs:element name="webamilPhoneFax" type="xs:string" />
+				<xs:element name="webamilPhoneMob" type="xs:string" />
+				<xs:element name="webmailAddrWork" type="xs:string"/>
+				<xs:element name="webamilAddrHome" type="xs:string" />
+				<xs:element name="webamilPre" type="xs:string" />
+				<xs:element name="webamilSuf" type="xs:string" />
+				<xs:element name="webmailMNM" type="xs:string"/>
+				<xs:element name="webamilFNM" type="xs:string" />
+				<xs:element name="webamilLNM" type="xs:string" />
+				<xs:element name="webamilPhoto" type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="webamilPhotoByte" type="xs:byte" />
+			</xs:sequence>
+		
+	</xs:complexType>
+	
+	
+</xs:schema>

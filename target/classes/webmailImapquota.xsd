@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://webmail.com/Imapquota" xmlns:tns="http://webmail.com/Imapquota"
+	elementFormDefault="qualified">
+
+	<xs:element name="getWebmailImapquotaRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" />
+				<xs:element name="webamilHost" type="xs:string" />
+				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWebmailImapquotaResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element	name="imapquota" type="tns:imapquota" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	 <xs:complexType name="imapquota">
+        <xs:sequence>
+            <xs:element name="quotalimit" type="xs:long"/>
+            <xs:element name="quotauses" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+	
+</xs:schema>

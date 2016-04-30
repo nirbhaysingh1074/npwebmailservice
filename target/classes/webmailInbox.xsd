@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://webmail.com/Inbox" xmlns:tns="http://webmail.com/Inbox"
+	elementFormDefault="qualified">
+
+	<xs:element name="getInboxMailRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" />
+				<xs:element name="webamilHost" type="xs:string" />
+				<xs:element name="webamilPort" type="xs:string" />
+				<xs:element name="webamilStart" type="xs:string" />
+				<xs:element name="webamilEnd" type="xs:string" />
+				<xs:element name="webamilFolder" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getMailInboxResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" 
+					name="GetInboxByMailLimit" type="tns:InboxListReturn" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="InboxListReturn">
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="1" name="Success"
+				type="xs:boolean" />
+			<xs:element minOccurs="0" maxOccurs="1" name="InboxListReturn"
+				type="tns:ArrayOfInboxMail" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArrayOfInboxMail">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="InboxMailList"
+				nillable="true" type="tns:Inbox" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Inbox">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="1" name="ToId"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="FromId"
+				type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="1" name="CCId"
+				type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="1" name="BCCId"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="ReplyId"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="Uid"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="Subject"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="Attachment"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="AttachmentName"
+				type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="AttachmentSize"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="SendDtae"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="SendDtaeTitle"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="MailFlage"
+				type="xs:boolean" />
+				<xs:element minOccurs="0" maxOccurs="1" name="MailSeen"
+				type="xs:boolean" />
+				<xs:element minOccurs="0" maxOccurs="1" name="MailDraft"
+				type="xs:boolean" />
+				<xs:element minOccurs="0" maxOccurs="1" name="MailContent"
+				type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="1" name="MailContentOtr"
+				type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="1" name="MailTag"
+				type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="1" name="MailPriority"
+				type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<xs:element name="getInboxMailDescRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" />
+				<xs:element name="webamilHost" type="xs:string" />
+				<xs:element name="webamilPort" type="xs:string" />
+				<xs:element name="webamilStart" type="xs:string" />
+				<xs:element name="webamilEnd" type="xs:string" />
+				<xs:element name="webamilFolder" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getMailInboxDescResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" 
+					name="GetInboxByMailLimitDesc" type="tns:InboxListDescReturn" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="InboxListDescReturn">
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="1" name="SuccessDesc"
+				type="xs:boolean" />
+			<xs:element minOccurs="0" maxOccurs="1" name="InboxListDescReturn"
+				type="tns:ArrayOfInboxMailDesc" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArrayOfInboxMailDesc">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="InboxMailListDesc"
+				nillable="true" type="tns:InboxDesc" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InboxDesc">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="1" name="ToIdDesc"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="FromIdDesc"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="ReplyIdDesc"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="UidDesc"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="SubjectDesc"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="AttachmentDesc"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="SendDtaeDesc"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="SendDtaeTitleDesc"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="MailFlageDesc"
+				type="xs:boolean" />
+				<xs:element minOccurs="0" maxOccurs="1" name="MailSeenDesc"
+				type="xs:boolean" />
+				<xs:element minOccurs="0" maxOccurs="1" name="MailContentDesc"
+				type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	
+	
+	
+</xs:schema>

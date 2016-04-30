@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://webmail.com/LdapDirectory" xmlns:tns="http://webmail.com/LdapDirectory"
+	elementFormDefault="qualified">
+
+	<xs:element name="getLdapDirectoryRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" />
+				<xs:element name="webamilUrl" type="xs:string" />
+				<xs:element name="webmailBase" type="xs:string"/> 
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="getLdapDirectoryResponse">
+		<xs:sequence>
+			
+			<xs:element minOccurs="0" maxOccurs="1" name="DirUserListReturn"
+				type="tns:ArrayOfUserDir" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArrayOfUserDir">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="DirectoryUserList"
+				nillable="true" type="tns:MyDirectory" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MyDirectory">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="1" name="Name"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="Photo"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="Email"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="Phone"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="Address"
+				type="xs:string" />
+			
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	
+	
+	
+	
+</xs:schema>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://edms.com/Folder" xmlns:tns="http://edms.com/Folder"
+	elementFormDefault="qualified">
+
+	<xs:element name="getFolderRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="folderPath" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getFolderResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1"
+					name="GetFoldersByParentFolder" type="tns:FolderListReturn" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="FolderListReturn">
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="1" name="Success"
+				type="xs:boolean" />
+			<xs:element minOccurs="0" maxOccurs="1" name="FolderListResult"
+				type="tns:ArrayOfFolders" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArrayOfFolders">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="FolderList"
+				nillable="true" type="tns:Folder" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Folder">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="1" name="ResponseText"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="folderName"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="folderPath"
+				type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:element name="hasChildRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="folderPath" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="hasChildResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1"
+					name="hasChild" type="xs:boolean" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

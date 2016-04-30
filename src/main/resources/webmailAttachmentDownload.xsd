@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://webmail.com/Maildownload" xmlns:tns="http://webmail.com/Maildownload"
+	elementFormDefault="qualified">
+
+	<xs:element name="getMailAttachDownloadRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" /> 
+				<xs:element name="webamilHost" type="xs:string" />
+				<xs:element name="webamilPort" type="xs:string" />
+				<xs:element name="webamilUid" type="xs:string" />
+				<xs:element name="webamilFolder" type="xs:string" />
+				<xs:element name="webamilFileName" type="xs:string" />
+				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getMailAttachDownloadResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilInputStream" type="xs:anyType" /> 
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	
+	
+	
+</xs:schema>

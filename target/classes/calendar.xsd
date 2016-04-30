@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://webmail.com/calendar" xmlns:tns="http://webmail.com/calendar"
+	elementFormDefault="qualified">
+	
+	<xs:element name="getCalendarMailRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilIp" type="xs:string" />
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" />
+				<xs:element name="webamilFromName" type="xs:string" />
+				<xs:element name="webamilHost" type="xs:string" />
+				<xs:element name="webamilPort" type="xs:string" />
+				<xs:element name="webamilTo" type="xs:string" />
+				<xs:element name="webamilSubject" type="xs:string" />
+				<xs:element name="webamilBodyContent" type="xs:string" />
+				<xs:element name="webamilCalendarContent" type="xs:string" />
+				<xs:element name="webmailXMailer" type="xs:string" />
+		
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="getCalendarMailResponse">
+		<xs:complexType>
+			<xs:sequence>
+				 <xs:element minOccurs="0" maxOccurs="1" name="SetMailStatus" type="xs:boolean" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	
+	<xs:element name="createCalendarRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CalID" type="xs:string" />
+				<xs:element name="CalColor" type="xs:string" />
+				<xs:element name="CalMethod" type="xs:string" />
+				<xs:element name="userid" type="xs:string" />
+				<xs:element name="permission" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="createCalendarResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="response" type="xs:base64Binary" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="importCalendarRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="fromfilecontent" type="xs:base64Binary" />
+				<xs:element name="tofilecontent" type="xs:base64Binary" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+			<xs:element name="createEventRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="eventbean" type="tns:EventBean" />
+						<xs:element name="orgname" type="xs:string" />
+						<xs:element name="orgemail" type="xs:string" />
+						<xs:element name="filecontent" type="xs:base64Binary" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			
+			<xs:element name="getInviteEventRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="filecontent" type="xs:base64Binary" />
+						<xs:element name="defaultCalendar" type="xs:base64Binary" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getInviteEventResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="eventList" type="tns:eventArray" />
+						<xs:element name="filecontent" type="xs:base64Binary" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			
+			<xs:element name="getImportCalendarRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="newCalendar" type="xs:base64Binary" />
+						<xs:element name="existingCalendar" type="xs:base64Binary" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getImportCalendarResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="filecontent" type="xs:base64Binary" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			
+			<xs:element name="changeColorRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="changedcolor" type="xs:string" />
+						<xs:element name="filecontent" type="xs:base64Binary" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="changeColorResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="success" type="xs:boolean" />
+						<xs:element name="filecontent" type="xs:base64Binary" />
+						<xs:element name="eventList" type="tns:eventArray" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		<xs:complexType name="EventBean">
+				<xs:sequence>
+					<xs:element name="summary" type="xs:string" />
+					<xs:element name="location" type="xs:string" />
+					<xs:element name="calendar" type="xs:string" />
+					<xs:element name="color" type="xs:string" />
+					<xs:element name="starteventdate" type="xs:dateTime" />
+					<xs:element name="endeventdate" type="xs:dateTime" />
+					<xs:element name="starttime" type="xs:string" />
+					<xs:element name="endtime" type="xs:string" />
+					<xs:element name="description" type="xs:string" />
+					<xs:element name="clazz" type="xs:string" />
+					<xs:element name="freebusy" type="xs:string" />
+					<xs:element name="frequency" type="xs:string" />
+					<xs:element name="count" type="xs:int" nillable="true"/>
+					<xs:element name="until" type="xs:date" />
+					<xs:element name="interval" type="xs:int" />
+					<xs:element name="allday" type="xs:string" />
+					<xs:element name="reminderdata" type="xs:string" />
+					<xs:element name="uid" type="xs:string" />
+					<xs:element name="monthlyinfo" type="xs:string" />
+					<xs:element name="repeatdatetimelist" type="tns:DateTimeList" />
+					<xs:element name="oldguest" type="xs:string" />
+					<xs:element name="newguest" type="xs:string" />
+					<xs:element name="sequence" type="xs:int" />
+					</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="DateTimeList">
+					<xs:sequence>
+						<xs:element minOccurs="0" maxOccurs="unbounded"  name="DateTime" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+		
+			
+			<xs:element name="createEventResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="response" type="xs:base64Binary" />
+						<xs:element name="eventuid" type="xs:string" />
+						<xs:element name="eventcolor" type="xs:string" />
+						<xs:element name="repeatdates" type="tns:DateTimeList" />
+						<xs:element name="updateStatus" type="xs:boolean" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="getEventsRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="calendarFileName" type="xs:string" />
+						<xs:element name="calendarFileContent" type="xs:base64Binary" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getEventsResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="eventList" type="tns:eventArray" />
+						<xs:element name="calendarname" type="xs:string" />
+						<xs:element name="calendarcolor" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getFilterEventsRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="filterDate" type="xs:dateTime" />
+						<xs:element name="calendarFileName" type="xs:string" />
+						<xs:element name="calendarFileContent" type="xs:base64Binary" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getFilterEventsResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="eventList" type="tns:eventArray" />
+						<xs:element name="calendarname" type="xs:string" />
+						<xs:element name="calendarcolor" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="geteventdetailsRequest">
+				<xs:complexType>
+						<xs:sequence>
+						<xs:element name="eventbean" type="tns:EventBean" />
+						<xs:element name="filecontent" type="xs:base64Binary" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="geteventdetailsResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="eventBean" type="tns:EventBean" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType name="eventArray">
+					<xs:sequence>
+						<xs:element minOccurs="0" maxOccurs="unbounded"  name="eventList" type="tns:EventBean" />
+					</xs:sequence>
+				</xs:complexType>
+			<xs:element name="getDeleteEventRequest">
+				<xs:complexType>
+						<xs:sequence>
+						<xs:element name="uid" type="xs:string" />
+						<xs:element name="filecontent" type="xs:base64Binary" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getDeleteEventResponse">
+				<xs:complexType>
+						<xs:sequence>
+						<xs:element name="response" type="xs:boolean" />
+						<xs:element name="filecontent" type="xs:base64Binary" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType name="CalendarBean">
+				<xs:sequence>
+					<xs:element name="calendarname" type="xs:string" />
+					<xs:element name="color" type="xs:string" />
+					<xs:element name="location" type="xs:string" />
+					<xs:element name="description" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="getCalendarDetailRequest">
+				<xs:complexType>
+						<xs:sequence>
+						<xs:element name="calname" type="xs:string" />
+						<xs:element name="filecontent" type="xs:base64Binary" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getCalendarDetailResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="calendarBean" type="tns:CalendarBean" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getUpdateCalendarRequest">
+				<xs:complexType>
+						<xs:sequence>
+						<xs:element name="calendarBean" type="tns:CalendarBean" />
+						<xs:element name="filecontent" type="xs:base64Binary" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getUpdateCalendarResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="success" type="xs:boolean" />
+						<xs:element name="filecontent" type="xs:base64Binary" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+</xs:schema>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://webmail.com/Task" xmlns:tns="http://webmail.com/Task"
+	elementFormDefault="qualified">
+	
+	<xs:complexType name="TaskBean">
+		<xs:sequence>
+				<xs:element name="detail" type="xs:string" />
+				<xs:element name="startdate" type="xs:dateTime" />
+				<xs:element name="starttime" type="xs:string" />
+				<xs:element name="enddate" type="xs:dateTime" />
+				<xs:element name="endtime" type="xs:string" />
+				<xs:element name="status" type="xs:string" />
+				<xs:element name="modifydate" type="xs:dateTime" nillable="true" />
+				<xs:element name="progress" type="xs:int" />
+				<xs:element name="priority" type="xs:int" />
+				<xs:element name="taskdesc" type="xs:string"  nillable="true"/>
+				<xs:element name="reminderdata" type="xs:string" />
+				<xs:element name="uid" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="getAddTaskRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="eventbean" type="tns:TaskBean" />
+				<xs:element name="filecontent" type="xs:base64Binary" />
+				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="getAddTaskResponse">
+		<xs:complexType>
+			<xs:sequence>
+				 <xs:element name="response" type="xs:base64Binary" />
+				<xs:element name="uid" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getUpdateTaskRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="eventbean" type="tns:TaskBean" />
+				<xs:element name="filecontent" type="xs:base64Binary" />
+				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="getUpdateTaskResponse">
+		<xs:complexType>
+			<xs:sequence>
+				 <xs:element name="response" type="xs:base64Binary" />
+				<xs:element name="updateSuccess" type="xs:boolean" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getTasksRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="taskFileName" type="xs:string" />
+				<xs:element name="calendarFileContent" type="xs:base64Binary" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getTasksResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="taskList" type="tns:taskArray" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="taskArray">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded"  name="taskList" type="tns:TaskBean" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="deleteTaskRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="uid" type="xs:string" />
+				<xs:element name="calendarFileContent" type="xs:base64Binary" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deleteTaskResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="taskdeleted" type="xs:boolean" />
+				<xs:element name="response" type="xs:base64Binary" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deleteSelectedTaskRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="uid" type="xs:string" />
+				<xs:element name="calendarFileContent" type="xs:base64Binary" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deleteSelectedTaskResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="taskdeleted" type="xs:boolean" />
+				<xs:element name="response" type="xs:base64Binary" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getTaskDetailRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="uid" type="xs:string" />
+				<xs:element name="calendarFileContent" type="xs:base64Binary" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getTaskDetailResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="unbounded"  name="taskList" type="tns:TaskBean" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+</xs:schema>

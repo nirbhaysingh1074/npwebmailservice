@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://webmail.com/Folder" xmlns:tns="http://webmail.com/Folder"
+	elementFormDefault="qualified">
+
+
+<xs:element name="getWebmailCreateFolderRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webmailId" type="xs:string" />
+				<xs:element name="webmailPassword" type="xs:string" />
+				<xs:element name="webmailHost" type="xs:string" />
+				<xs:element name="webmailFolderName" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWebmailCreateFolderResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1"
+					name="GetcflderStatus" type="xs:boolean" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	
+	<xs:element name="getWebmailDeleteFolderRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webmailId" type="xs:string" />
+				<xs:element name="webmailPassword" type="xs:string" />
+				<xs:element name="webmailHost" type="xs:string" />
+				<xs:element name="webmailFolderName" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWebmailDeleteFolderResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1"
+					name="GetdflderStatus" type="xs:boolean" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	
+	<xs:element name="getWebmailSubscriptionFolderRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webmailId" type="xs:string" />
+				<xs:element name="webmailPassword" type="xs:string" />
+				<xs:element name="webmailHost" type="xs:string" />
+				<xs:element name="webmailFolderName" type="xs:string" />
+				<xs:element name="webmailFolderSubStatus" type="xs:boolean" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWebmailSubscriptionFolderResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1"
+					name="GetsflderStatus" type="xs:boolean" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+
+
+	<xs:element name="getWebmailFolderRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" />
+				<xs:element name="webamilHost" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWebmailFolderResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1"
+					name="GetWebmailFolder" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="getWebmailSubFolderRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" />
+				<xs:element name="webamilHost" type="xs:string" />
+				<xs:element name="webamilFolderPath" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWebmailSubFolderResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1"
+					name="GetWebmailSubFolder" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+
+
+
+
+<xs:element name="getWebmailFolderOtherRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webmailId" type="xs:string" />
+				<xs:element name="webmailPassword" type="xs:string" />
+				<xs:element name="webmailHost" type="xs:string" />
+				<xs:element name="webmailFolderPath" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWebmailFolderOtherResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" 
+					name="GetSubFolder" type="tns:MailFolderListReturn" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="MailFolderListReturn">
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="1" name="Success"
+				type="xs:boolean" />
+			<xs:element minOccurs="0" maxOccurs="1" name="MailFolderListReturn"
+				type="tns:ArrayOfMailFolder" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArrayOfMailFolder">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="MailFolderList"
+				nillable="true" type="tns:MailImapFolders" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MailImapFolders">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="1" name="FolderName"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="FolderFullName"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="FolderMode"
+				type="xs:int" />
+			<xs:element minOccurs="0" maxOccurs="1" name="hasChild"
+				type="xs:boolean" />
+			<xs:element minOccurs="0" maxOccurs="1" name="IsSubs"
+				type="xs:boolean" />
+			<xs:element minOccurs="0" maxOccurs="1" name="MessageCount"
+				type="xs:int" />
+			
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+
+
+
+
+
+<xs:element name="getWebmailFolderSubscribedRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" />
+				<xs:element name="webamilHost" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWebmailFolderSubscribedResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1"
+					name="GetWebmailFolderSubscribed" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="getWebmailSubFolderSubscribedRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" />
+				<xs:element name="webamilHost" type="xs:string" />
+				<xs:element name="webamilFolderPath" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWebmailSubFolderSubscribedResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1"
+					name="GetWebmailSubFolderSubscribed" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<xs:element name="getWebmailFolderSubscribedOtherRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" />
+				<xs:element name="webamilHost" type="xs:string" />
+				<xs:element name="webmailFolderPath" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWebmailFolderSubscribedOtherResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" 
+					name="GetSubFolder" type="tns:SubsFolderListReturn" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="SubsFolderListReturn">
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="1" name="Success"
+				type="xs:boolean" />
+			<xs:element minOccurs="0" maxOccurs="1" name="SubsFolderListReturn"
+				type="tns:ArrayOfSubsFolder" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArrayOfSubsFolder">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="SubsFolderList"
+				nillable="true" type="tns:SubsImapFolders" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SubsImapFolders">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="1" name="FolderName"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="FolderFullName"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="FolderMode"
+				type="xs:int" />
+			<xs:element minOccurs="0" maxOccurs="1" name="hasChild"
+				type="xs:boolean" />
+			<xs:element minOccurs="0" maxOccurs="1" name="MessageCount"
+				type="xs:int" />
+			
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<xs:element name="getWebmailSubFolderSubscribedOtherRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" />
+				<xs:element name="webamilHost" type="xs:string" />
+				<xs:element name="webamilFolderPath" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+<xs:element name="getWebmailSubFolderSubscribedOtherResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" 
+					name="GetSubFolder" type="tns:SubsSubFolderListReturn" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="SubsSubFolderListReturn">
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="1" name="Success"
+				type="xs:boolean" />
+			<xs:element minOccurs="0" maxOccurs="1" name="SubsSubFolderListReturn"
+				type="tns:ArrayOfSubsSubFolder" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArrayOfSubsSubFolder">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="SubsSubFolderList"
+				nillable="true" type="tns:SubsImapSubFolders" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SubsImapSubFolders">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="1" name="FolderName"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="FolderFullName"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="FolderMode"
+				type="xs:int" />
+			<xs:element minOccurs="0" maxOccurs="1" name="hasChild"
+				type="xs:boolean" />
+			<xs:element minOccurs="0" maxOccurs="1" name="MessageCount"
+				type="xs:int" />
+			
+		</xs:sequence>
+	</xs:complexType>
+	
+
+
+
+
+
+	
+</xs:schema>

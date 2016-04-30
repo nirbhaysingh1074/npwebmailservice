@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://webmail.com/LdapModifyAttribute" xmlns:tns="http://webmail.com/LdapModifyAttribute"
+	elementFormDefault="qualified">
+
+	
+	
+	
+	<xs:element name="getLdapModifyOneAttRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webmailId" type="xs:string" /> 
+				<xs:element name="webmailPassword" type="xs:string" />
+				<xs:element name="webmailAttName" type="xs:string" />
+				<xs:element name="webmailAttValue" type="xs:string" />
+				<xs:element name="webmailUrl" type="xs:string" />
+				<xs:element name="webmailBase" type="xs:string"/> 
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getLdapModifyOneAttResponse">
+		<xs:complexType>
+			<xs:sequence>
+				 <xs:element minOccurs="0" maxOccurs="1" name="getStatus" type="xs:boolean" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	
+	<xs:element name="getLdapModifyListAttRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webmailId" type="xs:string" />
+				<xs:element name="webmailPassword" type="xs:string" />
+				<xs:element name="webmailUrl" type="xs:string" />
+				<xs:element name="webmailBase" type="xs:string"/>
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="webmailAttList" type="xs:string" /> 
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="webmailAttListValue" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getLdapModifyListAttResponse">
+		<xs:complexType>
+			<xs:sequence>
+				 <xs:element minOccurs="0" maxOccurs="1" name="getStatus" type="xs:boolean" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	
+	
+	
+</xs:schema>

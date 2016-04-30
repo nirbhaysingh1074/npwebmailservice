@@ -1,0 +1,30 @@
+----------------------------------------------------------------
+2014-12-11 13:07:02.799 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance a816c00e-014a-3975-b1d0-0000005bdd20
+on database directory D:\mywebmail\gs-producing-web-service-master\complete\repository\version\db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2014-12-11 13:07:04.934 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance 888c4022-014a-3975-b1d0-0000005bdd20
+on database directory D:\mywebmail\gs-producing-web-service-master\complete\repository\workspaces\default\db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2014-12-11 13:07:08.152 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance 6965c036-014a-3975-b1d0-0000005bdd20
+on database directory D:\mywebmail\gs-producing-web-service-master\complete\repository\workspaces\security\db  
+
+Database Class Loader started - derby.database.classpath=''
+
+2014-12-11 13:07:09.850 GMT:
+Shutting down instance 888c4022-014a-3975-b1d0-0000005bdd20
+----------------------------------------------------------------
+
+2014-12-11 13:07:10.017 GMT:
+Shutting down instance 6965c036-014a-3975-b1d0-0000005bdd20
+----------------------------------------------------------------
+
+2014-12-11 13:07:10.141 GMT:
+Shutting down instance a816c00e-014a-3975-b1d0-0000005bdd20
+----------------------------------------------------------------

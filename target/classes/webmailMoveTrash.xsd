@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://webmail.com/Movetrash" xmlns:tns="http://webmail.com/Movetrash"
+	elementFormDefault="qualified">
+
+	<xs:element name="getWebmailMoveTrashRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" />
+				<xs:element name="webamilHost" type="xs:string" />
+				<xs:element name="webamilPort" type="xs:string" />
+				<xs:element name="webamilFolder" type="xs:string" />
+				<xs:element name="webamilUids" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWebmailMoveTrashResponse">
+		<xs:complexType>
+			<xs:sequence>
+				 <xs:element minOccurs="0" maxOccurs="1" name="MoveTrashStatus" type="xs:boolean" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+		
+	<xs:element name="getWebmailSpamRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webmailId" type="xs:string" />
+				<xs:element name="webmailPassword" type="xs:string" />
+				<xs:element name="webmailHost" type="xs:string" />
+				<xs:element name="webmailPort" type="xs:string" />
+				<xs:element name="webmailFolder" type="xs:string" />
+				<xs:element name="webmailFolderDestination" type="xs:string" />
+				<xs:element name="webmailUids" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWebmailSpamResponse">
+		<xs:complexType>
+			<xs:sequence>
+				 <xs:element minOccurs="0" maxOccurs="1" name="spamStatus" type="xs:boolean" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+</xs:schema>

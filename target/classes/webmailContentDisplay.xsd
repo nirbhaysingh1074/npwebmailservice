@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://webmail.com/Maildisplay" xmlns:tns="http://webmail.com/Maildisplay"
+	elementFormDefault="qualified">
+
+	<xs:element name="getMailDisplayRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" /> 
+				<xs:element name="webamilHost" type="xs:string" />
+				<xs:element name="webamilPort" type="xs:string" />
+				<xs:element name="webamilUid" type="xs:string" />
+				<xs:element name="webamilFolder" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getMailDisplayResponse"> 
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" name="GetInboxByUid" type="tns:InboxDisplay" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="InboxDisplay">
+		<xs:sequence>
+		<xs:element minOccurs="0" maxOccurs="1" name="ErrorCnt"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="ToId"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="FromId"
+				type="xs:string" />
+				
+			<xs:element minOccurs="0" maxOccurs="1" name="CCId"
+				type="xs:string" />
+				
+			<xs:element minOccurs="0" maxOccurs="1" name="ReplyId"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="Uid"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="Subject"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="Attachment"
+				type="tns:Attachment" />
+			<xs:element minOccurs="0" maxOccurs="1" name="SendDtae"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="SendDtaeTitle"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="MailFlage"
+				type="xs:boolean" />
+				<xs:element minOccurs="0" maxOccurs="1" name="MailSeen" 
+				type="xs:boolean" />
+				<xs:element minOccurs="0" maxOccurs="1" name="MailContent"
+				type="xs:string" /> 
+				<xs:element minOccurs="0" maxOccurs="1" name="MailTag"
+				type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="1" name="MailFlageRecent"
+				type="xs:boolean" />
+				<xs:element minOccurs="0" maxOccurs="1" name="MailReadRec"
+				type="xs:boolean" />
+				<xs:element minOccurs="0" maxOccurs="1" name="MailReadRecId"
+				type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="1" name="MailPriority"
+				type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="1" name="inlineimgsize"
+				type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="1" name="ICSstatus"
+				type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="1" name="ICSMethod"
+				type="xs:string" />
+				<xs:element name="ICScntt"	type="xs:base64Binary" />
+				<xs:element minOccurs="0" maxOccurs="1" name="ICSString"
+				type="xs:string" />
+				
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Attachment">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="1" name="AttachmentName" type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="AttachmentSize" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>	
+	
+	
+	
+	<xs:element name="getMailHeaderRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webmailId" type="xs:string" />
+				<xs:element name="webmailPassword" type="xs:string" /> 
+				<xs:element name="webmailHost" type="xs:string" />
+				<xs:element name="webmailPort" type="xs:string" />
+				<xs:element name="webmailUid" type="xs:string" />
+				<xs:element name="webmailFolder" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getMailHeaderResponse"> 
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" name="GetMailHeaderCont" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	
+</xs:schema>

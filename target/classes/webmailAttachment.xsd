@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://webmail.com/MailAttach" xmlns:tns="http://webmail.com/MailAttach"
+	elementFormDefault="qualified">
+
+	<xs:element name="getMailAttachmentRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webmailId" type="xs:string" />
+				<xs:element name="webmailPassword" type="xs:string" /> 
+				<xs:element name="webmailHost" type="xs:string" />
+				<xs:element name="webmailPort" type="xs:string" />
+				<xs:element name="webmailUid" type="xs:string" />
+				<xs:element name="webmailFolder" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getMailAttachmentResponse"> 
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1" name="GetAttachByUid" type="tns:ReplyDisplay" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	
+	<xs:complexType name="ReplyDisplay">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="ToId"
+				type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="1" name="ReplyToId"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="FromId"
+				type="xs:string" />
+				
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="CCId"
+				type="xs:string" />
+				
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="BCCId"
+				type="xs:string" />
+			
+			<xs:element minOccurs="0" maxOccurs="1" name="Subject"
+				type="xs:string" />
+			
+			
+			<xs:element minOccurs="0" maxOccurs="1" name="SendDtae"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="SendDtaeTitle"
+				type="xs:string" />
+			
+				<xs:element minOccurs="0" maxOccurs="1" name="MailContent"
+				type="xs:string" /> 
+				<xs:element minOccurs="0" maxOccurs="1" name="AttachStatus"
+				type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="1" name="inlineimgsize"
+				type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="1" name="messageID"
+				type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="1" name="references"
+				type="xs:string" />
+				
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="AttachmentNameList" type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="AttachmentNewNameList" type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="AttachmentSizeList" type="xs:string" /> 
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+</xs:schema>

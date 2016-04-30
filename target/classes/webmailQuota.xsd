@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://webmail.com/Quota" xmlns:tns="http://webmail.com/Quota"
+	elementFormDefault="qualified">
+
+	<xs:element name="getWebmailQuotaRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" />
+				<xs:element name="webamilHost" type="xs:string" />
+				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWebmailQuotaResponse">
+		<xs:complexType>
+			<xs:sequence>
+				 <!--  <xs:element name="webmailquota" type="tns:webmailquota"/> -->
+				 <xs:element minOccurs="0" maxOccurs="1" name="QuotaLimit" type="xs:long" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- <xs:complexType name="webmailquota">
+        <xs:sequence>
+           <xs:element minOccurs="1" maxOccurs="1" name="QuotaLimit" type="xs:long" />
+		   <xs:element minOccurs="0" maxOccurs="1"	name="QuotaUses" type="xs:long" />
+        </xs:sequence>
+    </xs:complexType> -->
+	
+	
+	
+	
+</xs:schema>

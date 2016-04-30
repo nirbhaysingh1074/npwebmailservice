@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://webmail.com/Compose" xmlns:tns="http://webmail.com/Compose"
+	elementFormDefault="qualified">
+
+	<xs:element name="getComposeMailRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilIp" type="xs:string" />
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" />
+				<xs:element name="webamilFromName" type="xs:string" />
+				<xs:element name="webamilHost" type="xs:string" />
+				<xs:element name="webamilPort" type="xs:string" />
+				<xs:element name="webamilIMAPPort" type="xs:string" />
+				<xs:element name="webamilSaveSent" type="xs:boolean" />
+				<xs:element name="webamilTo" type="xs:string" />
+				<xs:element name="webamilCc" type="xs:string" />
+				<xs:element name="webamilBcc" type="xs:string" />
+				<xs:element name="webamilSubject" type="xs:string" />
+				<xs:element name="webamilBodyContent" type="xs:string" />
+				<xs:element name="webamilPriority" type="xs:string" />
+				<xs:element name="webamilReadRec" type="xs:string" />
+				<xs:element name="webmailDraftUid" type="xs:string" />
+				<xs:element name="webamilAttach" type="xs:boolean" />
+				<xs:element name="webmailTextType" type="xs:string" />
+				<xs:element name="webmailXMailer" type="xs:string" />
+				<xs:element  name="webmailOldMessageID" 	type="xs:string" />
+				<xs:element name="webmailReferences"	type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="AttachmentFileName" type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="AttachmentFileNewName" type="xs:string" />
+				<!-- <xs:element minOccurs="0" maxOccurs="unbounded" name="Attachment"
+				type="tns:Attachment" /> -->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- <xs:complexType name="Attachment">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="1" name="AttachmentFileName" type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="AttachmentFileNewName" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>	 -->
+	<xs:element name="getComposeMailResponse">
+		<xs:complexType>
+			<xs:sequence>
+				 <xs:element minOccurs="0" maxOccurs="1" name="SetComposeStatus" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	
+	</xs:element>
+	
+	
+	<xs:element name="getSaveMailDraftRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webmailIp" type="xs:string" />
+				<xs:element name="webmailId" type="xs:string" />
+				<xs:element name="webmailPassword" type="xs:string" />
+				<xs:element name="webmailFromName" type="xs:string" />
+				<xs:element name="webamilHost" type="xs:string" />
+				<xs:element name="webmailPort" type="xs:string" />
+				<xs:element name="webmailIMAPPort" type="xs:string" />
+				<xs:element name="webmailUid" type="xs:string" />
+				<xs:element name="webmailTo" type="xs:string" />
+				<xs:element name="webmailCc" type="xs:string" />
+				<xs:element name="webmailBcc" type="xs:string" />
+				<xs:element name="webmailSubject" type="xs:string" />
+				<xs:element name="webmailBodyContent" type="xs:string" />
+				<xs:element name="webmailTextType" type="xs:string" />
+				<xs:element name="webmailAttach" type="xs:boolean" />
+				<xs:element name="webmailXMailer" type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="AttachmentFileName" type="xs:string" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="AttachmentFileNewName" type="xs:string" /> 
+				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="getSaveMailDraftResponse">
+		<xs:complexType>
+			<xs:sequence>
+				 <xs:element minOccurs="0" maxOccurs="1" name="SetMailID" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	
+	</xs:element>
+	
+	<xs:element name="getWebmailDeleteDraftRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webmailId" type="xs:string" />
+				<xs:element name="webmailPassword" type="xs:string" />
+				<xs:element name="webmailHost" type="xs:string" />
+				<xs:element name="webmailPort" type="xs:string" />
+				<xs:element name="webmailUids" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWebmailDeleteDraftResponse">
+		<xs:complexType>
+			<xs:sequence>
+				 <xs:element minOccurs="0" maxOccurs="1" name="DeleteDraftStatus" type="xs:boolean" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	
+</xs:schema>

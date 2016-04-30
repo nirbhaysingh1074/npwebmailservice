@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://webmail.com/LdapAttribute" xmlns:tns="http://webmail.com/LdapAttribute"
+	elementFormDefault="qualified">
+
+	<xs:element name="getLdapFNameRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" />
+				<xs:element name="webamilAttName" type="xs:string" />
+				<xs:element name="webamilUrl" type="xs:string" />
+				<xs:element name="webmailBase" type="xs:string"/> 
+				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getLdapFNameResponse">
+		<xs:complexType>
+			<xs:sequence>
+				 <xs:element minOccurs="0" maxOccurs="1" name="getFName" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	
+	
+	<xs:element name="getLdapOneAttOtrUserRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webmailId" type="xs:string" />
+				<xs:element name="webmailPassword" type="xs:string" />
+				<xs:element name="webmailAttName" type="xs:string" />
+				<xs:element name="webmailUrl" type="xs:string" />
+				<xs:element name="webmailBase" type="xs:string"/> 
+				<xs:element name="webmailSearchBase" type="xs:string"/> 
+				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getLdapOneAttOtrUserResponse">
+		<xs:complexType>
+			<xs:sequence>
+				 <xs:element minOccurs="0" maxOccurs="1" name="getLdapAttr" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	
+
+<xs:element name="getVCFLdapDirRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webmailDirId" type="xs:string" />
+				<xs:element name="webmailDirPassword" type="xs:string" />
+				<xs:element name="webmailDirUrl" type="xs:string" />
+				<xs:element name="webmailDirBase" type="xs:string"/>
+				<xs:element name="webmailSearchBase" type="xs:string"/> 
+			</xs:sequence>
+		</xs:complexType>
+</xs:element>
+
+
+	<xs:element name="getVCFLdapDirResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1"
+					name="GetVCFLdapDirByParentFile" type="tns:VCFLdapDirListReturn" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="VCFLdapDirListReturn">
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="1" name="VCFLdapDirSuccess"
+				type="xs:boolean" />
+			<xs:element minOccurs="0" maxOccurs="1" name="VCFLdapDirListResult"
+				type="tns:ArrayOfVCFLdapDir" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArrayOfVCFLdapDir">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="VCFLdapDirList"
+				nillable="true" type="tns:VCFLdapDirAtt" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VCFLdapDirAtt">
+		<xs:sequence>
+			<xs:element name="ContactEmail" type="xs:string" />
+			<xs:element name="ContactPhoto" type="xs:string" />
+			<xs:element name="ContactName" type="xs:string" />
+			<xs:element name="ContactPhone" type="xs:string" />
+			<xs:element name="ContactAddress" type="xs:string"/> 
+			<xs:element name="ContactDept" type="xs:string"/> 
+			</xs:sequence>
+	</xs:complexType>
+
+
+
+
+
+<xs:element name="getContactDetailRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webmailDetailId" type="xs:string" />
+				<xs:element name="webmailDetailPassword" type="xs:string" />
+				<xs:element name="webmailDetailUrl" type="xs:string" />
+				<xs:element name="webmailDetailBase" type="xs:string"/>
+				<xs:element name="webmailDetailSearchId" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+</xs:element>
+
+
+<xs:element name="getContactDetailResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="1"
+					name="GetContactFullDetail" type="tns:ContactFullDetail" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+		<xs:complexType name="ContactFullDetail">
+			<xs:sequence>
+			<xs:element name="ContactEmail" type="xs:string" /> 
+			<xs:element name="ContactPhoto" type="xs:string" />
+			<xs:element name="ContactName" type="xs:string" />
+			<xs:element name="ContactMobile" type="xs:string" />
+			<xs:element name="ContactHomePhone" type="xs:string" />
+			<xs:element name="ContactTel" type="xs:string" />
+			<xs:element name="ContactAddress" type="xs:string"/> 
+			<xs:element name="ContactDept" type="xs:string"/> 
+			</xs:sequence>
+		</xs:complexType>
+
+	
+	
+	
+	
+</xs:schema>

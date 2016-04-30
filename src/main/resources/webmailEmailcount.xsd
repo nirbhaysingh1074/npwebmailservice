@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://webmail.com/Mailcount" xmlns:tns="http://webmail.com/Mailcount"
+	elementFormDefault="qualified">
+
+	<xs:element name="getWebmailUnreadMailCountRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" />
+				<xs:element name="webamilHost" type="xs:string" />
+				<xs:element name="webamilPort" type="xs:string" />
+				<xs:element name="webamilFolder" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWebmailUnreadMailCountResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element	name="unreademailcount" type="xs:int" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	 <xs:element name="getWebmailAllMailCountRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="webamilId" type="xs:string" />
+				<xs:element name="webamilPassword" type="xs:string" />
+				<xs:element name="webamilHost" type="xs:string" />
+				<xs:element name="webamilPort" type="xs:string" />
+				<xs:element name="webamilFolder" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getWebmailAllMailCountResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element	name="allemailcount" type="xs:long" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element> 
+	 
+</xs:schema>
